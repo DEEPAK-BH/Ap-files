@@ -1,0 +1,17 @@
+.icons .icon{
+  height:50px;
+  width:50px;
+  display:block;
+}
+
+ul.icons li{
+  background-size:contain;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  padding:0px;
+  margin:5px;
+}
+
+footer span{
+  font-size: 12px;
+}
