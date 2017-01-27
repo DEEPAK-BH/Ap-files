@@ -1,4 +1,4 @@
-@charset "UTF-8";
+Chosang & Arpan Pokharel - Uthnecha Nepal@charset "UTF-8";
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Signika:300,700");
 
@@ -3342,7 +3342,7 @@
 		.video .caption {
 			color: #c0c5c9;
 			padding: 1.5em;
-			font-size: 1.25em;
+			font-size: 1 .25em;
 			font-weight: 300;
 			margin: 0;
 		}
@@ -3818,3 +3818,128 @@
 			}
 
 		}
+@media screen and (min-width: 480px) {
+          #video
+          {
+            margin: 40px auto;
+            height: 500px;
+            position: relative;
+            width: 70%;
+            min-width: 760px;
+            box-shadow: 0px 0px 110px -10px;
+            background-color: #c6c6c6;
+          }
+
+        #video:before{
+          content: '';
+          position: absolute;
+          left: 30px;
+          bottom: 8px;
+          width: 40%;
+          height: 0px;
+          box-shadow: 0px 5px 25px 8px black;
+          z-index: -1;
+
+          -ms-transform: rotateZ(-3deg); /* IE 9 */
+          -webkit-transform: rotateZ(-3deg); /* Chrome, Safari, Opera */
+          transform: rotateZ(-3deg);
+        }
+
+        #video:after{
+          content: '';
+          position: absolute;
+          right: 30px;
+          bottom: 8px;
+          width: 40%;
+          height: 0px;
+          box-shadow: 0px 5px 25px 8px black;
+          z-index: -1;
+
+          -ms-transform: rotateZ(3deg); /* IE 9 */
+          -webkit-transform: rotateZ(3deg); /* Chrome, Safari, Opera */
+          transform: rotateZ(3deg);
+        }
+        }
+        	ul.icons {
+			cursor: default;
+			list-style: none;
+			padding-left: 0;
+		}
+
+			ul.icons li {
+				display: inline-block;
+				padding: 0 1em 0 0;
+			}
+
+				ul.icons li:last-child {
+					padding-right: 0;
+				}
+        
+       #footer {
+    margin: 2px auto 0 auto;
+
+}
+
+
+        @media screen and (max-width: 768px) {
+          #video
+          {
+            margin: auto;
+            height: 350px;
+            position: relative;
+            width: 100%;
+            min-width: 468px;
+            background:rgba(0,0,0,0);
+          }
+
+          #video:before{
+            box-shadow: none;
+          }
+
+          #video:after{
+            box-shadow: none;
+          }
+        }
+
+      #video iframe{
+        position: absolute;
+        height:100%;
+        width:100%;
+      }
+
+      #header{
+          color:white;
+          text-align: center;
+      }
+
+      .h-big{
+        font-size: 30px;
+        margin-bottom: 15px;
+      }
+
+      .h-small{
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .gradient {
+      background-color: #e3e3e3;
+      /* IE9, iOS 3.2+ */
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyYWRpYWxHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGN4PSIwJSIgY3k9IjAlIiByPSIxNDEuNDIxMzU2MjM3MzA5NSUiPjxzdG9wIHN0b3AtY29sb3I9IiNlMmUyZTIiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iI2RiZGJkYiIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAuNSIvPjxzdG9wIHN0b3AtY29sb3I9IiNkMWQxZDEiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwLjUxIi8+PHN0b3Agc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L3JhZGlhbEdyYWRpZW50PjxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCN2c2dnKSIgLz48L3N2Zz4=);
+      /* Android 2.3- hack (needed for the actual radial gradient) */
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyYWRpYWxHcmFkaWVudCBpZD0idnNnZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGN4PSIwJSIgY3k9IjAlIiByPSIxNDEuNDIxMzU2MjM3MzA5NSUiPjxzdG9wIHN0b3AtY29sb3I9IiNlMmUyZTIiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iI2RiZGJkYiIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjAuNSIvPjxzdG9wIHN0b3AtY29sb3I9IiNkMWQxZDEiIHN0b3Atb3BhY2l0eT0iMSIgb2Zmc2V0PSIwLjUxIi8+PHN0b3Agc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIiBvZmZzZXQ9IjEiLz48L3JhZGlhbEdyYWRpZW50PjxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCN2c2dnKSIgLz48L3N2Zz4=),
+          -webkit-gradient(radial, left top, 0, left top, 723,color-stop(0, rgb(226, 226, 226)),color-stop(0.5, rgb(219, 219, 219)),color-stop(0.51, rgb(209, 209, 209)),color-stop(1, rgb(254, 254, 254)));
+      /* Android 2.3 */
+      background-image: -webkit-radial-gradient(left top, ellipse farthest-corner,rgb(226, 226, 226) 0%,rgb(219, 219, 219) 50%,rgb(209, 209, 209) 51%,rgb(254, 254, 254) 100%);
+      /* IE10+ */
+      background-image: radial-gradient(ellipse farthest-corner at left top,rgb(226, 226, 226) 0%,rgb(219, 219, 219) 50%,rgb(209, 209, 209) 51%,rgb(254, 254, 254) 100%);
+      background-image: -ms-radial-gradient(left top, ellipse farthest-corner,rgb(226, 226, 226) 0%,rgb(219, 219, 219) 50%,rgb(209, 209, 209) 51%,rgb(254, 254, 254) 100%);
+      }
+
+      /* IE8- CSS hack */
+      @media \0screen\,screen\9 {
+              .gradient {
+                  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffe2e2e2",endColorstr="#fffefefe",GradientType=0);
+              }
+          }
+      
