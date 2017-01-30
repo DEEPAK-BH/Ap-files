@@ -15,3 +15,7 @@ ul.icons li{
 footer span{
   font-size: 12px;
 }
+
+.video{
+  cursor: pointer;
+}
