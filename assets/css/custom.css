@@ -19,3 +19,14 @@ footer span{
 .video{
   cursor: pointer;
 }
+
+#video{
+    min-width: 320px;
+}
+
+@media screen and (min-width:320px) and (max-width:768px)
+{
+  #video{
+    width:100%;
+  }
+}

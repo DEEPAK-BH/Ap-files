@@ -1,57 +1,125 @@
 (function($){
+    $(document).ready(function(){
 
-  $('.video.col').on('click', function(){
-      var url = $(this).data('youtube');
-      url += '?autoplay=1';
-      var screen = $('#video.screen');
-      var iframe = $(screen).find('iframe');
-
-      if ($(iframe).attr('src') === url)
-      {
-          _scrollToScreen();
-          return;
-      }
-
-      $(iframe).attr('src', url);
-      $(iframe).on('load', function(){
-          _scrollToScreen();
+      // scroll to top after banner is added by Templated core JS
+      // if url contains no hash
+      // if url contains hash, then look for video and scroll to that video
+      var intervaled = setInterval(function(){
+          if(_isBannerAdded())
+          {
+              if (!_isHashed())
+              {
+                  _scrollTo(0,0);
+              }
+              else {
+                  var videoTitle = _getVideoNameFromUrlHash();
+                  var video = $('.video[data-title=' + videoTitle + ']');
+                  if (video.length)
+                  {
+                    _handleIFrameUrlAndScrollToIt($(video).data('youtube'), videoTitle);
+                  }
+              }
+              clearInterval(intervaled);
+          }
       });
+    });
 
-      function _scrollToScreen()
-      {
-        $('html, body').animate({
-          scrollTop: $(screen).offset().top - 50
-        }, 100);
-      }
-  });
+    // scroll to the screen when youtube thumbnail is clicked
+    $('.video.col').on('click', function(){
+        _handleIFrameUrlAndScrollToIt($(this).data('youtube'), $(this).data('title'));
+    });
 
-  $(window).scroll(function(){
-      var elem = $("#banner");
-      var video = $(elem).find("video")[0];
+    // get hash from url and strip out #
+    function _getVideoNameFromUrlHash()
+    {
+      return window.location.hash.split('#').join('');
+    }
 
-      if (undefined !== video)
-      {
-        $(video).prop('muted', true);
-        if(!isElementVisible(elem))
+    // handle changing video in iframe video screen and scrolling to it
+    function _handleIFrameUrlAndScrollToIt(youtubeUrl, title)
+    {
+        youtubeUrl += '?autoplay=1';
+        var screen = $('#video.screen');
+        var iframe = $(screen).find('iframe');
+
+        var screenOffset = $(screen).offset().top - 50;
+
+        if ($(iframe).attr('src') === youtubeUrl)
         {
-            video.pause();
-        }else {
-            video.play();
+            _scrollToScreen();
+            return;
         }
+
+        $(iframe).attr('src', youtubeUrl);
+        $(iframe).on('load', function(){
+            _scrollToScreen();
+            window.location.hash = title
+        });
+    }
+
+    // mute, pause, unpause when window is scrolled
+    $(window).scroll(function(){
+        var elem = $("#banner");
+        var video = $(elem).find("video")[0];
+
+        if (undefined !== video)
+        {
+          $(video).prop('muted', true);
+          if(!isElementVisible(elem))
+          {
+              video.pause();
+          }else {
+              video.play();
+          }
+        }
+    });
+
+    // scroll to iframe screen
+    function _scrollToScreen()
+    {
+      var offset = $('#video.screen').offset().top;
+      _scrollTo(offset - 50);
+    }
+
+    // check if url contains hash and return respectively true or false
+    function _isHashed()
+    {
+      return (window.location.hash !== "");
+    }
+
+    // Video banner is added dynamically by javascript so scrolling to the top on
+    // document ready or any other event does not work as until then the js's not
+    // appended banner in DOM. Templated script gives a way to find that by inpecting
+    // class in body which is removed after the banner is added to the DOM.
+    function _isBannerAdded()
+    {
+      return !($('body').hasClass('is-loading'));
+    }
+
+    // Scroll to an offset with a animation speed
+    function _scrollTo(offset, speed)
+    {
+      if (undefined === speed)
+      {
+        speed = 150;
       }
-  });
 
-  function isElementVisible(element, fullyInView) {
-        var pageTop = $(window).scrollTop();
-        var pageBottom = pageTop + $(window).height();
-        var elementTop = $(element).offset().top;
-        var elementBottom = elementTop + $(element).height();
+      $('html, body').animate({
+        scrollTop: offset
+      }, speed);
+    }
 
-        if (fullyInView === true) {
-            return ((pageTop < elementTop) && (pageBottom > elementBottom));
-        } else {
-            return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
-  }
-}
+    // checks if an element is completely visible in the screen
+    function isElementVisible(element, fullyInView) {
+      var pageTop = $(window).scrollTop();
+      var pageBottom = pageTop + $(window).height();
+      var elementTop = $(element).offset().top;
+      var elementBottom = elementTop + $(element).height();
 
+      if (fullyInView === true) {
+          return ((pageTop < elementTop) && (pageBottom > elementBottom));
+      } else {
+          return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
+      }
+    }
 })(jQuery);
