@@ -25,14 +25,13 @@
       }
   });
 
-
-
   $(window).scroll(function(){
       var elem = $("#banner");
       var video = $(elem).find("video")[0];
 
       if (undefined !== video)
       {
+        $(video).prop('muted', true);
         if(!isElementVisible(elem))
         {
             video.pause();
