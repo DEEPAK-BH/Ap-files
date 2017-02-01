@@ -16,7 +16,7 @@
                   var video = $('.video[data-title=' + videoTitle + ']');
                   if (video.length)
                   {
-                    _handleIFrameUrlAndScrollToIt($(video).data('youtube'), videoTitle);
+                    _handleIFrameUrlAndScrollToIt($(video).data('youtube'), videoTitle, 800);
                   }
               }
               clearInterval(intervaled);
@@ -36,13 +36,15 @@
     }
 
     // handle changing video in iframe video screen and scrolling to it
-    function _handleIFrameUrlAndScrollToIt(youtubeUrl, title)
+    function _handleIFrameUrlAndScrollToIt(youtubeUrl, title, scrollSpeed)
     {
+        scrollSpeed = scrollSpeed || 0;
+
         youtubeUrl += '?autoplay=1';
         var screen = $('#video.screen');
         var iframe = $(screen).find('iframe');
 
-        var screenOffset = $(screen).offset().top - 50;
+        var screenOffset = $(screen).offset().top;
 
         if ($(iframe).attr('src') === youtubeUrl)
         {
@@ -52,8 +54,9 @@
 
         $(iframe).attr('src', youtubeUrl);
         $(iframe).on('load', function(){
-            _scrollToScreen();
+            _scrollToScreen(scrollSpeed);
             window.location.hash = title
+            $(this).off('load');
         });
     }
 
@@ -75,10 +78,11 @@
     });
 
     // scroll to iframe screen
-    function _scrollToScreen()
+    function _scrollToScreen(scrollSpeed)
     {
+      scrollSpeed = scrollSpeed || 0;
       var offset = $('#video.screen').offset().top;
-      _scrollTo(offset);
+      _scrollTo(offset, scrollSpeed);
     }
 
     // check if url contains hash and return respectively true or false
@@ -99,11 +103,6 @@
     // Scroll to an offset with a animation speed
     function _scrollTo(offset, speed)
     {
-      if (undefined === speed)
-      {
-        speed = 0;
-      }
-
       $('html, body').animate({
         scrollTop: offset
       }, speed);
