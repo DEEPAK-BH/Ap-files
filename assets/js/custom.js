@@ -78,7 +78,7 @@
     function _scrollToScreen()
     {
       var offset = $('#video.screen').offset().top;
-      _scrollTo(offset - 50);
+      _scrollTo(offset);
     }
 
     // check if url contains hash and return respectively true or false
@@ -101,7 +101,7 @@
     {
       if (undefined === speed)
       {
-        speed = 150;
+        speed = 0;
       }
 
       $('html, body').animate({

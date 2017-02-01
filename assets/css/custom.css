@@ -22,6 +22,7 @@ footer span{
 
 #video{
     min-width: 320px;
+    margin:0 auto;
 }
 
 @media screen and (min-width:320px) and (max-width:768px)
