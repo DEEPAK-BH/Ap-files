@@ -1585,7 +1585,7 @@ Chosang & Arpan Pokharel - Uthnecha Nepal@charset "UTF-8";
 /* Type */
 
 	body {
-		background-color: #020B13;
+		background-color: #ffffff;
 		color: #c0c2c4;
 	}
 
@@ -1943,10 +1943,7 @@ Chosang & Arpan Pokharel - Uthnecha Nepal@charset "UTF-8";
 	input[type="reset"],
 	input[type="button"],
 	button,
-	.button {
-		background-color: #041625;
-		color: #ffffff !important;
-	}
+	
 
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
@@ -2433,7 +2430,12 @@ Chosang & Arpan Pokharel - Uthnecha Nepal@charset "UTF-8";
 			.image.main img {
 				width: 100%;
 			}
+.image footer {
+	position:relative;
+	min-width: 375px;
 
+
+}
 	.video-wrapper {
 		position: relative;
 		padding-bottom: 56.25%;
@@ -2829,7 +2831,7 @@ Chosang & Arpan Pokharel - Uthnecha Nepal@charset "UTF-8";
 			}
 
 		.wrapper.style1 {
-			background-color: #062038;
+			background-color: #ffffff;
 			color: #c1c7cd;
 		}
 
@@ -3340,7 +3342,7 @@ Chosang & Arpan Pokharel - Uthnecha Nepal@charset "UTF-8";
 				}
 
 		.video .caption {
-			color: #c0c5c9;
+			color: #02080e;
 			padding: 1.5em;
 			font-size: 1 .25em;
 			font-weight: 300;
@@ -3776,7 +3778,9 @@ Chosang & Arpan Pokharel - Uthnecha Nepal@charset "UTF-8";
 
 	#footer {
 		padding: 1em 0 0.5em 0;
+		height:80px;
 	}
+	
 
 		#footer > .inner {
 			margin: 0 auto;
